@@ -1,0 +1,36 @@
+<uigen>
+	<meta>
+		<callbacks>
+			<callback name="callback1" type="procedure">
+				<function>funzione1</function>
+			</callback>
+			<callback name="callback2" type="procedure">
+				<function>funzione2</function>
+			</callback>
+		</callbacks>
+		<events>
+			<event name="evento1" callback="callback1"/>
+			<event name="evento2" callback="callback2"/>
+		</events>
+	</meta>
+	<ui>
+		<lbox flow="vertical" gap="2px">
+			<label id="">testo fisso</label>
+			<text event_default="evento1">
+				testo iniziale
+			</text>
+			<button event_default="evento1 evento2">
+				ciao
+			</button>
+		</lbox>
+		<lbox flow="orizontal">
+			<lbox flow="orizontal">
+				<button>arrivederci</button>
+				<lbox flow="orizontal">
+					<button>arrivederci</button>
+				</lbox>
+			</lbox>
+			<button>arrivederci</button>
+		</lbox>
+	</ui>
+</uigen>

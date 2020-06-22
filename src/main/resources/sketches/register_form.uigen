@@ -1,0 +1,57 @@
+<uigen>
+	<meta>
+		<callbacks>
+			<callback name="RegisterForm__validate" type="object">
+				<class>RegisterForm</class>
+				<method>validate</method>
+			</callback>
+			<!-- type può essere "object" oppure "procedure" -->
+			<callback name="RegisterForm__submit" type="object">
+				<class>RegisterForm</class>
+				<method>submit</method>
+			</callback>
+		</callbacks>
+		<events>
+			<event name="form_validation" callback="RegisterForm__validate"/>
+			<event name="form_submit" callback="RegisterForm__submit"/>
+		</events>
+	</meta>
+	<ui>
+		<!--
+
+		SPECS:
+		specificare almeno un attributo tra "cols" e "rows"
+
+		DEFAULTS:
+		text default: "write"
+		button default: "focus&enter", "mouseup"
+
+		CONTRAINTS:
+		submittable per ogni box:
+			su ogni input, setta "event_submit" verso il "event_default"
+			del button specificato da submittable
+
+		il contenuto dei nodi di tipo "input" (e forse anche di button) si chiama "value"
+
+		-->
+		<gbox cols="2" submittable="bottone">
+
+			<label>Nome</label>
+			<text hint="Mario" event_default="form_validation" event_enter="form_submit"/>
+
+			<label>Cognome</label>
+			<text hint="Loria" event_default="form_validation" event_enter="form_submit"/>
+
+			<label>E-mail</label>
+			<text hint="umberto.egidio@gmail.com" event_default="form_validation" event_enter="form_submit"/>
+
+			<label>Password</label>
+			<text hint="*****" event_default="form_validation" event_enter="form_submit"/>
+
+			<button id="bottone" col_width="2" event_default="form_validation form_submit">
+				Registrati
+			</button>
+
+		</gbox>
+	</ui>
+</uigen>
